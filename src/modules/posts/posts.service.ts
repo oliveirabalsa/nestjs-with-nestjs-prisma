@@ -14,8 +14,8 @@ export class PostsService {
     return this.postsRepository.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} post`;
+  async findOne(id: string) {
+    return this.postsRepository.findOne(id);
   }
 
   update(id: number, updatePostDto: UpdatePostDto) {
