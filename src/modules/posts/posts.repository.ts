@@ -10,6 +10,12 @@ export class PostsRepository {
     return this.prismaService.post.findMany();
   }
 
+  async findOne(id: string) {
+    return this.prismaService.post.findUnique({
+      where: { id },
+    });
+  }
+
   async create(data: CreatePostDto) {
     return this.prismaService.post.create({
       data,
